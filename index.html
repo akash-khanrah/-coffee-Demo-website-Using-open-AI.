@@ -191,7 +191,7 @@ const PRODUCTS = [
 ];
 const SIZE_MULT = {S: 0.85, M: 1, L: 1.25};
 const SIZE_NAME = {S: "Small", M: "Medium", L: "Large"};
-const FREE_DELIVERY_AT = 499, DELIVERY_FEE = 49, PROMO_CODE = "SIP10";
+const FREE_DELIVERY_AT = 299, DELIVERY_FEE = 49, PROMO_CODE = "AK007";
 let cart   = load("sc_cart", []);      
 let orders = load("sc_orders", []);   
 let promoApplied = false;
@@ -285,7 +285,6 @@ function updateDetailPrice(){
 }
 function renderAnother(p){
   const others = PRODUCTS.filter(x => x.id !== p.id);
-  // same category first, then the rest — pick 4
   const same = others.filter(x => x.cats.some(c => p.cats.includes(c)));
   const rest = others.filter(x => !same.includes(x));
   const picks = [...shuffle(same), ...shuffle(rest)].slice(0, 4);
